@@ -1,0 +1,321 @@
+/* ==================== */
+/* = Variable Section = */
+/* ====================*/
+:root {
+  --main-color: #10cab7;
+  --second-color: #2c4755;
+  --section-color: #fafafa;
+  --section-head-color: #ebeced;
+  --section-padding: 60px;
+}
+
+/* ================ */
+/* = Global Rules = */
+/* ================ */
+@font-face {
+  font-family: "worksans";
+  src: url("../fonts/WorkSans-VariableFont_wght.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "worksans";
+  box-sizing: border-box;
+}
+
+/* =========Responsive========== */
+.container {
+  margin: auto;
+  padding: 0 15px;
+}
+/* Small Screen */
+
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+/* Medium Screen */
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+/* Larg Screen */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+/* ========component=========== */
+.spacial-head {
+  text-align: center;
+  font-size: 170px;
+  font-weight: 800;
+  letter-spacing: -5px;
+  color: var(--section-head-color);
+  text-transform: capitalize;
+}
+.spacial-head + p {
+  text-align: center;
+  margin-top: -55px;
+  letter-spacing: -2px;
+  font-size: 30px;
+  color: #777;
+}
+@media (max-width: 767px) {
+  .spacial-head {
+    font-size: 90px;
+  }
+  .spacial-head + p {
+    margin-top: -30px;
+    font-size: 20px;
+  }
+}
+/* ================ */
+/* = Site Section = */
+/* ================ */
+/* ====== Start header ========= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px auto;
+}
+header .logo {
+  height: 40px;
+}
+header .links {
+  position: relative;
+}
+/* ====== Start icon ========= */
+header .links .icon {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40px;
+  height: 40px;
+  justify-content: end;
+  align-items: center;
+}
+header .links .icon span {
+  background-color: var(--second-color);
+  height: 2px;
+  width: 100%;
+}
+header .links .icon span:nth-of-type(2) {
+  width: 70%;
+  transition: 0.3s;
+}
+header .links:hover .icon span:nth-of-type(2) {
+  width: 100%;
+}
+/* ====== End icon ========= */
+header .links ul {
+  list-style: none;
+  width: 0px;
+  background-color: var(--section-color);
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  transition: width 0.3s, height 0.3s 0.1s;
+  overflow: hidden;
+  height: 0px;
+  border-radius: 5px;
+}
+header .links ul::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--section-color) transparent;
+  top: -20px;
+  right: 5px;
+}
+header .links ul li a {
+  text-decoration: none;
+  color: var(--second-color);
+  display: block;
+  padding: 15px;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+header .links ul li:not(:last-child) {
+  border-bottom: 1px solid var(--section-head-color);
+}
+header .links:hover ul {
+  width: 300px;
+  height: 300px;
+  overflow: visible;
+}
+header .links ul li:hover a {
+  padding-left: 25px;
+}
+/* ====== End header ========= */
+/* ====== Start Landing ========= */
+.landing {
+  background-image: url(../images/landing.jpg);
+  height: calc(548px - 90px);
+  background-size: cover;
+  position: relative;
+}
+.landing .intro-text {
+  text-align: center;
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+.landing .intro-text h1 {
+  font-size: 45px;
+  text-transform: capitalize;
+  font-weight: 800;
+  color: var(--main-color);
+  letter-spacing: -2px;
+}
+.landing .intro-text p {
+  line-height: 1.6;
+  color: var(--second-color);
+}
+/* ====== End Landing ========= */
+/* ====== Start Features ========= */
+.features {
+  background-color: var(--section-color);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.features .feature {
+  text-align: center;
+}
+.features .feature i {
+  color: var(--main-color);
+  margin-bottom: 40px;
+}
+.features .feature h2 {
+  color: var(--second-color);
+  font-weight: 800;
+  margin-bottom: 35px;
+}
+.features .feature p {
+  color: #575757;
+  line-height: 1.8;
+}
+/* ====== End Features ========= */
+/* ====== Start Services ========= */
+.services {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.services .srv-cont {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 60px;
+  margin-top: 100px;
+}
+.services .srv-cont .srv {
+  display: flex;
+  min-height: 210px;
+}
+.services .srv-cont .srv i {
+  color: var(--main-color);
+  flex-basis: 60px;
+}
+.services .srv-cont .srv .srv-text {
+  flex: 1;
+  margin-bottom: 40px;
+}
+.services .srv-cont .srv .srv-text h3 {
+  color: var(--second-color);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.services .srv-cont .srv .srv-text p {
+  line-height: 1.6;
+  color: var(--second-color);
+}
+.services .srv-cont .image {
+  position: relative;
+}
+.services .srv-cont .image::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: calc(100% + 100px);
+  background-color: var(--second-color);
+  right: -30px;
+  top: -50px;
+  z-index: -1;
+}
+.services .srv-cont .image img {
+  width: 100%;
+}
+@media (max-width: 1199px) {
+  .services .srv-cont .image {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .services .srv-cont .srv {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* ====== End Services ========= */
+/* ====== Start portfolio ========= */
+.portfolio {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--section-color);
+}
+.portfolio .por-cont {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 100px;
+}
+.portfolio .por-cont .por-card {
+  background-color: #fff;
+}
+.portfolio .por-cont .por-card img {
+  max-width: 100%;
+}
+.portfolio .por-cont .por-card .por-text {
+  padding: 15px;
+}
+.portfolio .por-cont .por-card .por-text h3 {
+  color: var(--second-color);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.portfolio .por-cont .por-card .por-text p {
+  line-height: 1.6;
+  color: var(--second-color);
+}
+.portfolio .container .button {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.portfolio .container .button button {
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: var(--section-color);
+  border: 2px solid var(--second-color);
+  cursor: pointer;
+}
+/* ====== End portfolio ========= */
